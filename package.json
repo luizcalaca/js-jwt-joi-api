@@ -1,0 +1,46 @@
+{
+  "name": "calaca",
+  "version": "1.0.0",
+  "description": "Calaça",
+  "main": "jest.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --runInBand --detectOpenHandles --forceExit",
+    "start": "node ./src/api/server.js",
+    "dev": "nodemon ./src/api/server.js",
+    "dev:test": "mocha ./src/integration-tests/**/*$NAME*.{test,spec}.js --exit",
+    "dev:test:coverage": "nyc --all npm run dev:test",
+    "dev:test:coverage:json": "nyc --all --reporter=json-summary npm run dev:test",
+    "lint": "eslint --no-inline-config --ext .js,.jsx --no-error-on-unmatched-pattern -c .eslintrc.json ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betrybe/sd-0x-exercise-user-jwt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/betrybe/sd-0x-exercise-user-jwt/issues"
+  },
+  "homepage": "https://github.com/betrybe/sd-0x-exercise-user-jwt#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "frisby": "^2.1.3",
+    "jest": "^29.4.3",
+    "joi": "^17.8.3",
+    "jsonwebtoken": "^9.0.0",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.3"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
+    "eslint-config-trybe-backend": "^2.1.0",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
+    "sinon": "^15.0.1"
+  }
+}
