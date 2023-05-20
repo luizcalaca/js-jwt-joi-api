@@ -1,11 +1,15 @@
 const userService = require('../services/userService');
+const { Sentry, transaction } = require('../utils/sentry');
 
 const create = async (request, response, next) => {
   try {
     const result = await userService.create(request.body);
     response.status(201).json({ response: result });
   } catch (error) {
+    Sentry.captureException(error);
     next(error);
+  } finally {
+    transaction.finish();
   }
 };
 
